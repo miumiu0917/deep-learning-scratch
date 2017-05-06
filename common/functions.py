@@ -24,3 +24,17 @@ def softmax(x):
   exp_x = np.exp(x - c)
   sum_exp_x = np.sum(exp_x)
   return exp_x / sum_exp_x
+
+
+def cross_entropy(y, t):
+  delta = 1e-7
+  return - 1.0 * np.sum(t * np.log(y + delta))
+
+
+def numeric_gradient(f, x):
+  h = 1e-4
+  grad = np.zeros_like(x)
+  for idx in range(x.size):
+    fxh = f(x[idx] + h)
+    grad[idx] = (fxh - f(x[idx])) / h
+  return grad

@@ -8,6 +8,7 @@ from dataset.mnist import load_mnist
 
 class TwoLayer(object):
   def __init__():
+    self.w1 = 
 
 
 def main():
